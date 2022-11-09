@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  addition:
+    build: ./Dockerfile
+    # image: ravibonami/calculator_multiplication:latest
+    ports:
+      - 8003:8003
+  
+  

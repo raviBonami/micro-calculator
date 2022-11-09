@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  calculator:
+    build: ./calculator
+    # image: ravibonami/calculator_calculator:latest
+    ports:
+      - 8000:8000
+  addition:
+    build: ./addition
+    # image: ravibonami/calculator_addition:latest
+    ports:
+      - 8001:8001
+  subtraction:
+    build: ./subtraction
+    # image: ravibonami/calculator_subtraction:latest
+    ports:
+      - 8002:8002
+  multiplication:
+    build: ./multiplication
+    # image: ravibonami/calculator_multiplication:latest
+    ports:
+      - 8003:8003
+  division:
+    build: ./division
+    # image: ravibonami/calculator_division:latest
+    ports:
+      - 8004:8004
+  

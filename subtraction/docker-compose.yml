@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  addition:
+    build: ./Dockerfile
+    # image: ravibonami/calculator_subtraction:latest
+    ports:
+      - 8002:8002
+  
+  

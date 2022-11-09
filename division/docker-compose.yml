@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  addition:
+    build: ./Dockerfile
+    # image: ravibonami/calculator_division:latest
+    ports:
+      - 8004:8004
+  
+  
