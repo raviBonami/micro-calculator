@@ -2,9 +2,13 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import fs from 'fs';
+import cors from 'cors';
 
 const app = express();
 
+app.use(cors({
+    origin:"*"
+}))
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json())
 app.use(morgan('combined',{

@@ -2,9 +2,12 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import fs from 'fs';
+import cors from 'cors'
 
 const app = express();
-
+app.use(cors({
+    origin:"*"
+}))
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
@@ -18,6 +21,7 @@ app.get("/", (req, res) => {
     console.log("addiotn inside addition..")
     res.send("Inside addition..")
 })
+
 
 app.post("/", (req, res) => {
     const num1 = parseInt(req.body.num1);

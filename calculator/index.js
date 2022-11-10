@@ -3,8 +3,12 @@ import axios from 'axios';
 import bodyParser from 'body-parser';
 import winston from './config/winston.js';
 import morgan from 'morgan';
+import cors from 'cors'
 
 const app = express();
+app.use(cors({
+    origin:"*"
+}))
 
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
@@ -15,42 +19,42 @@ app.get("/", (req,res) => {
 })
 
 app.get("/addition", async (req,res) => {
-    const data = await axios.get("http://localhost:8001");
+    const data = await axios.get("http://localhost:8001/");
     res.send(data.data);
     
 })
 
 app.get("/subtraction", async (req, res) => {
-    const data = await axios.get("http://localhost:8002");
+    const data = await axios.get("http://localhost:8002/");
     res.send(data.data);
 })
 
 app.get("/multiplication", async (req, res) => {
-    const data = await axios.get("http://localhost:8003");
+    const data = await axios.get("http://localhost:8003/");
     res.send(data.data);
 })
 
 app.post("/addition", async (req, res) => {
     const {num1, num2} = req.body;
-    const result = await axios.post("http://localhost:8001",{num1,num2});
+    const result = await axios.post("http://localhost:8001/",{num1,num2});
     res.send(result.data+"")
 })
 
 app.post("/subtraction", async(req, res) => {
     const {num1, num2} = req.body
-    const result = await axios.post("http://localhost:8002",{num1, num2});
+    const result = await axios.post("http://localhost:8002/",{num1, num2});
     res.send(result.data+"");
 })
 
 app.post("/multiplication", async(req, res) => {
     const {num1, num2} = req.body
-    const result = await axios.post("http://localhost:8003",{num1, num2});
+    const result = await axios.post("http://localhost:8003/",{num1, num2});
     res.send(result.data+"");
 })
 
 app.post("/division", async(req, res) => {
     const {num1, num2} = req.body
-    const result = await axios.post("http://localhost:8004",{num1, num2});
+    const result = await axios.post("http://localhost:8004/",{num1, num2});
     res.send(result.data+"");
 })
 
